@@ -11,7 +11,7 @@ O objetivo do desafio é processar o arquivo CNAB.txt, tratar os dados(transaç�
 
 ## 💻 Tecnologias usadas
 
-- Java 11 + Spring Boot
+- Java 17 + Spring Boot
 - JPA
 - HTML, CSS, JavaScript
 - Maven
