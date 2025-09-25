@@ -11,21 +11,21 @@ form.addEventListener("submit", function(event) {
         method: "POST",
         body: formData
     })
-    .then(function(response){
-        if(response.ok) {
-            return response.text();
-        } else{
-            throw new Error("Erro no upload");
-        }
-    })
-    .then(function(data) {
-        mensagem.textContent = "Sucesso! " + data;
-        mensagem.style.color = "green";
-    })
-    .catch(function(error) {
-        mensagem.textContent = "ERRO " + error;
-        mensagem.style.color = "red";
-        console.error(error);
-    });
+        .then(function(response) {
+            response.text().then(function(text) {
+                if(response.ok) {
+                    mensagem.textContent = "Sucesso! " + text;
+                    mensagem.style.color = "green";
+                } else {
+                    mensagem.textContent = "ERRO: " + text;
+                    mensagem.style.color = "red";
+                }
+            });
+        })
+        .catch(function(error) {
+            mensagem.textContent = "ERRO de conexão: " + error;
+            mensagem.style.color = "red";
+            console.error(error);
+        });
 
 });
